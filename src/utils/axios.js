@@ -11,6 +11,7 @@ import { Toast } from 'vant'
 import router from '../router'
 
 axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//backend-api-01.newbee.ltd/api/v1' : '//backend-api-01.newbee.ltd/api/v1'
+axios.defaults.baseURL = process.env.NODE_ENV == 'development' ? '//119.45.213.124:9001/api/v1' : '/119.45.213.124:9001/api/v1'
 axios.defaults.withCredentials = true
 axios.defaults.headers['X-Requested-With'] = 'XMLHttpRequest'
 axios.defaults.headers['token'] = localStorage.getItem('token') || ''
