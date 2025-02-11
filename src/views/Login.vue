@@ -29,17 +29,17 @@
           placeholder="密码"
           :rules="[{ required: true, message: '请填写密码' }]"
         />
-        <van-field
-          center
-          clearable
-          label="验证码"
-          placeholder="输入验证码"
-          v-model="state.verify"
-        >
-          <template #button>
-            <vue-img-verify ref="verifyRef" />
-          </template>
-        </van-field>
+<!--        <van-field-->
+<!--          center-->
+<!--          clearable-->
+<!--          label="验证码"-->
+<!--          placeholder="输入验证码"-->
+<!--          v-model="state.verify"-->
+<!--        >-->
+<!--          <template #button>-->
+<!--            <vue-img-verify ref="verifyRef" />-->
+<!--          </template>-->
+<!--        </van-field>-->
         <div style="margin: 16px;">
           <div class="link-register" @click="toggle('register')">立即注册</div>
           <van-button round block color="#1baeae" native-type="submit">登录</van-button>
@@ -110,12 +110,12 @@ const toggle = (v) => {
 
 // 提交登录或注册表单
 const onSubmit = async (values) => {
-  state.imgCode = verifyRef.value.state.imgCode || ''
-  if (state.verify.toLowerCase() != state.imgCode.toLowerCase()) {
-    showFailToast('验证码有误')
-    return
-  }
-  if (state.type == 'login') {
+  // state.imgCode = verifyRef.value.state.imgCode || ''
+  // if (state.verify.toLowerCase() != state.imgCode.toLowerCase()) {
+  //   showFailToast('验证码有误')
+  //   return
+  // }
+  if (state.type === 'login') {
     const { data } = await login({
       "loginName": values.username,
       "passwordMd5": md5(values.password)
